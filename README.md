@@ -1,8 +1,8 @@
 # Project-Management-APP
-###FULL STACK APP - Railsformers Úkol
+### FULL STACK APP - Railsformers Úkol
 
 
-#Používá:
+# Používá:
 ### SQLite3
 ### Ruby on Rails
 ### Bootstrap 5
