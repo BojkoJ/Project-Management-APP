@@ -11,7 +11,7 @@
 ### Devise Gem
 ### Active Storage
 
-#Jak spustit?
+# Jak spustit?
 ### rails db:migrate
 ### bundle install
 ### rails s
