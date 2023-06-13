@@ -1,0 +1,31 @@
+- if user_signed_in?
+  #users
+    %table.table.table-striped.table-bordered.table-hover
+      %thead
+        %tr
+          %th Name
+          %th Surame
+          %th E-mail
+          %th Address
+          %th{:colspan => "2"}
+      %tbody
+        - @users.each do |user|
+          %tr
+            %td.align-middle
+              = user.name
+            %td.align-middle
+              = user.surname
+            %td.align-middle
+              = user.email
+            %td.align-middle
+              = user.address
+            - if user.id == current_user.id
+              %td.text-center
+                = link_to 'Edit', edit_user_registration_path, class: "btn btn-outline-primary btn-sm"
+              %td.text-center
+                = link_to 'Delete', user, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-sm"
+            - else
+              %td
+              %td
+  = link_to "New user", destroy_user_session_path, data: { turbo_method: :delete }, class: "btn btn-secondary"
+- else

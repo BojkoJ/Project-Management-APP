@@ -1,0 +1,10 @@
+%h1 Editing project
+
+= render "form", project: @project
+
+%br
+
+%div
+  = link_to "Back", projects_path, class: "btn btn-dark"
+  = link_to "Show project", @project, class: "btn btn-dark"
+  = link_to 'Delete project', @project, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "btn btn-danger"

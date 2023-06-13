@@ -1,0 +1,29 @@
+= simple_form_for(@task) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  .form-inputs
+    = f.input :subject
+    = f.input :description
+    = f.label :user_id
+    %br
+    = f.collection_select :user_id, User.all, :id, :email, prompt: true, placeholder: "User"
+    %br
+    %br
+    = f.label :project_id
+    %br
+    = f.collection_select :project_id, Project.all, :id, :nazev, prompt: true
+    %br
+    %br
+    = f.label :files, "Files"
+    = f.file_field :files, multiple: true, direct_upload: true
+    %br
+    - if task.persisted?
+      %br
+      = f.label :status
+      %br
+      = f.select :status, Task.statuses.keys
+  %br
+
+  .form-actions
+    = f.button :submit, class: "btn btn-secondary"

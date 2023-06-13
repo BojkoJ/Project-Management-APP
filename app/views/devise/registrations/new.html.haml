@@ -1,0 +1,40 @@
+.row
+  .mx-auto.col-10.col-md-8.col-lg-6
+    %h2 Sign up
+
+    %br/
+
+    = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = render "devise/shared/error_messages", resource: resource
+
+      .field.w-75
+        = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Email"
+      %br/
+
+      .field.w-75
+        = f.text_field :name, class: "form-control", placeholder: "Name"
+      %br/
+
+      .field.w-75
+        = f.text_field :surname, class: "form-control", placeholder: "Surname"
+      %br/
+
+      .field.w-75
+        = f.text_field :address, class: "form-control", placeholder: "Address"
+
+      .field.w-75
+        - if @minimum_password_length
+          %em= "(" + @minimum_password_length.to_s + " characters minimum)"
+        %br/
+        = f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "Password"
+      %br/
+
+      .field.w-75
+        = f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: "Password Confimation"
+      %br/
+
+      .actions
+        = f.submit "Sign up", class: "btn btn-secondary"
+      %br/
+
+    = render "devise/shared/links"

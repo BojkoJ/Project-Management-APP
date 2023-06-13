@@ -1,0 +1,28 @@
+.row
+  .mx-auto.col-10.col-md-8.col-lg-6
+    %h2 Log in
+
+    %br/
+
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .field.form-group.w-75
+        = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Email"
+      %br/
+
+      .field.form-group.w-75
+        = f.password_field :password, autocomplete: "current-password", class: "form-control", placeholder: "Password"
+      %br/
+
+      - if devise_mapping.rememberable?
+        .field
+          = f.check_box :remember_me, class: "form-check-input"
+          = f.label :remember_me
+      %br/
+
+      .actions.form-group
+        = f.submit "Log in", class: "btn btn-secondary"
+      %br/
+    %br/
+
+    = render "devise/shared/links"
+  %br/
