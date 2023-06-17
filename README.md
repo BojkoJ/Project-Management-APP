@@ -12,6 +12,6 @@
 ### Active Storage
 
 # Jak spustit?
-### rails db:migrate
 ### bundle install
+### rails db:migrate
 ### rails s
