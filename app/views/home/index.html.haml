@@ -1,1 +1,44 @@
-%h1 Home - First of all you have to sign up/in
+%h1.text-center Homepage
+%br
+- if user_signed_in?
+	.row
+		.col-md-8
+			%h2 Projects creating activity:
+			= line_chart Project.group_by_day(:created_at).count
+		.col-md
+			%h2 Count of task statuses:
+			= pie_chart Task.group(:status).count
+	%br
+	%br
+	.row
+		.col-md
+			.row
+				.col
+					%h2 These tasks are currently in process:
+					%br
+					- if @in_process_tasks.present?
+						- @in_process_tasks.each do |task_subject|
+							%ul
+								%li= task_subject
+					- else
+						%p No tasks in process at the moment.
+			.row
+				.col-md
+					%h2 These tasks are currently done:
+					%br
+					- if @done_tasks.present?
+						- @done_tasks.each do |task_subject|
+							%ul
+								%li= task_subject
+					- else
+						%p No tasks done at the moment.
+		.col-md
+			%h2 Projects with 1 and more tasks:
+			- if @projects_with_tasks.present?
+				- @projects_with_tasks.each do |project|
+					%ul
+						%li= project.nazev
+			- else
+				%p No projects with tasks at the moment.
+	%br
+	%br

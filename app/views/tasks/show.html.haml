@@ -1,9 +1,16 @@
 %p{style: "color: green"}= notice
 
-= render @task
-
-%div
-= link_to "Edit this task", edit_task_path(@task), class: "btn btn-secondary"
-%br/
-%br/
-= button_to "Destroy this task", @task, method: :delete, class: "btn btn-secondary"
+%div.p-5.mb-4.bg-body-tertiary.rounded-3
+  .container-fluid.py-5
+    %h1.display-5.fw-bold
+      = @task.subject
+    %br/
+    %p.col-md-5.fs-4
+      = @task.description
+    %p.col-md-auto
+      - if @task.files.attached?
+        -@task.files.map do |file|
+          = link_to image_tag(file, class: "mx-1 my-1 object-fit-cover", style: "height: 300px; width:300px;"), url_for(file)
+    = link_to "Edit this task", edit_task_path(@task), class: "btn btn-secondary"
+    |
+    = link_to "Back to projects", projects_path, class: "btn btn-dark"

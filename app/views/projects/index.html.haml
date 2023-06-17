@@ -17,6 +17,8 @@
             %td.align-middle
               = project.tasks.count
             %td.text-center
+              = link_to "Show", project, class: "btn btn-outline-info btn-sm"
+            %td.text-center
               = link_to "Edit", edit_project_path(project), class: "btn btn-outline-primary btn-sm"
             %td.text-center
               = link_to 'Delete', project, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-sm"

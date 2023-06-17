@@ -24,6 +24,11 @@
         %ul.navbar-nav.me-auto.mb-2.mb-lg-0
           %li.nav-item
             = link_to 'Sign in', new_user_session_path, class: "nav-link"
-      %form.d-flex{role: "search"}
-        %input.form-control.me-2{type: "search", placeholder: "Search", "aria-label": "Search"}
-        %button.btn.btn-outline-success{type: "submit"} Search
+      %form.d-flex
+      -if user_signed_in?
+        - if current_user.name and current_user.surname
+          %b= current_user.name + " " +current_user.surname
+        - if current_user.image.attached?
+          = image_tag(current_user.image, class: "mw-100 rounded-circle object-fit-cover border border-5 border-success", style: "height: 50px; width:50px; margin: 0 50px 0 15px;")
+          %br/
+        - else

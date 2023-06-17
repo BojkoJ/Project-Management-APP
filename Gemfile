@@ -42,3 +42,9 @@ end
 gem 'simple_form'
 
 gem 'hamlit'
+
+gem 'chartkick'
+
+gem 'groupdate'
+
+gem 'faker', '~> 2.18', '>= 2.18.0'
