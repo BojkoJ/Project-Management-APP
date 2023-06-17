@@ -14,5 +14,5 @@
 # Jak spustit?
 ### bundle install
 ### rails db:migrate
-### rails db:seed
+### rails db:seed - provést 2x, na první pokus vytvoří pouze projekty bez tasků a na druhý pokus i s taskama
 ### rails s
