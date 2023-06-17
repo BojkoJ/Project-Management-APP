@@ -1,4 +1,9 @@
-# Seed projects
+project = Project.create(
+  nazev: "Project #{rand(1..50)}",
+  description: "Pokusný popis projektu",
+  created_at: Faker::Time.between(from: 1.month.ago, to: Time.zone.now)
+)
+
 10.times do
   project = Project.create(
     nazev: "Project #{rand(1..50)}",
@@ -6,7 +11,6 @@
     created_at: Faker::Time.between(from: 1.month.ago, to: Time.zone.now)
   )
 
-  # Seed tasks for each project
   5.times do
     task = Task.create(
       subject: "Task #{rand(1..10)}",
