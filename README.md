@@ -19,3 +19,4 @@
 # Doporučuji:
 ### Zaregistrovat se přes Sign up v Navigaci
 ### rails db:seed
+#### Seed je závislý na vytvoření aspoň jednoho uživatele, protože Tasks jsou přidělené uživateli, pokud žáden neexistuje. Seed se pro Tasks neprovede.
